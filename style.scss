@@ -13,7 +13,6 @@ h3 {
 }
 $colorPrimary: rgb(10, 170, 144);
 $colorPrimaryTrasp: rgba(10, 170, 144, 0.1);
-$colorSecondary: #00c4b4;
 $fontPrimary: "Montserrat", sans-serif;
 $fontSecondary: "Fredericka the Great", cursive;
 
@@ -93,7 +92,7 @@ $fontSecondary: "Fredericka the Great", cursive;
 }
 
 .Header {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   background: $colorPrimary;
   @include mobile {
     padding-bottom: 0;
@@ -109,8 +108,9 @@ $fontSecondary: "Fredericka the Great", cursive;
       justify-items: center;
     }
     .logo {
-      filter: invert(1);
       max-width: 80px;
+      filter: invert(1);
+      transform: rotate(20deg);
       @include mobile {
         max-width: 60px;
       }
@@ -158,7 +158,7 @@ $fontSecondary: "Fredericka the Great", cursive;
 .Intro {
   background-size: cover;
   background-image: url("imgs/dog_1.jpg");
-  background-position: center center;
+  background-position: center 60%;
   height: 850px;
   background-repeat: no-repeat;
   display: flex;
@@ -168,7 +168,7 @@ $fontSecondary: "Fredericka the Great", cursive;
   box-shadow: inset 0 0 0 2000px $colorPrimaryTrasp;
 
   @include mobile {
-    background-position: -600px center;
+    height: 50vh;
   }
 
   .wrapper {
@@ -206,7 +206,7 @@ $fontSecondary: "Fredericka the Great", cursive;
   background: $colorPrimary;
 
   .wrapper {
-    .text {
+    > .text {
       @include textSection();
       color: white;
       h1 {
@@ -217,8 +217,49 @@ $fontSecondary: "Fredericka the Great", cursive;
         }
       }
     }
-    .cards {
-      @include cards();
+    .briefs {
+      display: grid;
+      row-gap: 50px;
+      @include mobile() {
+        row-gap: 30px;
+      }
+      .brief {
+        display: grid;
+        grid-template-columns: minmax(300px, auto) auto;
+        color: white;
+        gap: 30px;
+
+        @include mobile() {
+          grid-template-columns: auto;
+          row-gap: 20px;
+          &:not(:last-child) {
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dotted white;
+          }
+        }
+
+        .nome {
+          text-align: center;
+          border-right: 1px dotted white;
+          padding-right: 1.5rem;
+          @include mobile() {
+            border: none;
+          }
+          .foto {
+            max-width: 150px;
+            border-radius: 50%;
+          }
+          h2 {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+          }
+        }
+        .text {
+          p {
+            line-height: 1.5rem;
+          }
+        }
+      }
     }
   }
 }
@@ -275,6 +316,7 @@ $fontSecondary: "Fredericka the Great", cursive;
       grid-column: 1 / -1;
       max-width: 80px;
       filter: invert(1);
+      transform: rotate(20deg);
     }
     .item {
       h3 {
@@ -299,7 +341,7 @@ $fontSecondary: "Fredericka the Great", cursive;
           display: inline-block;
           margin-bottom: 0.5rem;
           text-decoration: none;
-          padding: 3px 10px;
+          padding: 0.2rem 0.5rem;
           padding-left: 0;
           &:hover {
             filter: brightness(90%);
