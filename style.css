@@ -14,7 +14,7 @@ h3 {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -23,7 +23,7 @@ h3 {
   padding: 1rem 0;
   background: #0aaa90;
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .Header {
     padding-bottom: 0;
   }
@@ -34,7 +34,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .Header .wrapper {
     grid-template-columns: auto;
     justify-content: center;
@@ -45,7 +45,7 @@ h3 {
   filter: invert(1);
   max-width: 80px;
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .Header .wrapper .logo {
     max-width: 60px;
   }
@@ -58,7 +58,7 @@ h3 {
   list-style: none;
   padding-left: 0;
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .Header .wrapper .nav ul {
     padding: 0.6rem 0;
   }
@@ -90,36 +90,48 @@ h3 {
 .Intro {
   background-size: cover;
   background-image: url("imgs/dog_1.jpg");
-  height: 750px;
+  background-position: center center;
+  height: 850px;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-shadow: inset 0 0 0 2000px rgba(10, 170, 144, 0.1);
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .Intro {
-    background-image: url("imgs/amizade_mob.jpg");
-    background-size: cover;
+    background-position: -600px center;
   }
 }
 .Intro .wrapper .text {
   text-align: center;
   color: white;
-  font-family: "Montserrat", sans-serif !important;
 }
 .Intro .wrapper .text h1 {
   font-weight: normal;
   font-size: 3rem;
   margin-bottom: 1rem;
   display: inline-block;
+  font-family: "Fredericka the Great", cursive;
+  line-height: 1;
 }
 .Intro .wrapper .text h1::after {
   content: "";
   display: block;
-  height: 5px;
+  height: 3px;
   width: 80px;
   background: #00c4b4;
+  margin-top: 0.7rem;
+}
+@media (max-width: 650px) {
+  .Intro .wrapper .text h1 {
+    font-size: 2.5rem;
+  }
+  .Intro .wrapper .text h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .Intro .wrapper .text p {
   font-size: 1.1rem;
@@ -128,7 +140,16 @@ h3 {
 }
 .Intro .wrapper .text h1 {
   font-weight: 500;
-  font-size: 4rem;
+  font-size: 5rem;
+}
+@media (max-width: 650px) {
+  .Intro .wrapper .text h1 {
+    font-size: 3rem;
+  }
+  .Intro .wrapper .text h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .About {
@@ -142,21 +163,30 @@ h3 {
   font-size: 3rem;
   margin-bottom: 1rem;
   display: inline-block;
+  font-family: "Fredericka the Great", cursive;
+  line-height: 1;
 }
 .About .wrapper .text h1::after {
   content: "";
   display: block;
-  height: 5px;
+  height: 3px;
   width: 80px;
   background: #00c4b4;
+  margin-top: 0.7rem;
+}
+@media (max-width: 650px) {
+  .About .wrapper .text h1 {
+    font-size: 2.5rem;
+  }
+  .About .wrapper .text h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .About .wrapper .text p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
-}
-.About .wrapper .text h1 {
-  font-family: "Fredericka the Great", cursive;
 }
 .About .wrapper .cards {
   display: grid;
@@ -178,9 +208,212 @@ h3 {
 }
 .About .wrapper .cards .card h2 {
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
 }
 .About .wrapper .cards .card p {
   min-width: 200px;
+  line-height: 1.5rem;
+}
+
+.Brief {
+  padding: 4rem 0;
+  background: #0aaa90;
+}
+.Brief .wrapper .text {
+  text-align: center;
+  color: white;
+}
+.Brief .wrapper .text h1 {
+  font-weight: normal;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-family: "Fredericka the Great", cursive;
+  line-height: 1;
+}
+.Brief .wrapper .text h1::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80px;
+  background: #00c4b4;
+  margin-top: 0.7rem;
+}
+@media (max-width: 650px) {
+  .Brief .wrapper .text h1 {
+    font-size: 2.5rem;
+  }
+  .Brief .wrapper .text h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.Brief .wrapper .text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.Brief .wrapper .text h1 {
+  font-family: "Fredericka the Great", cursive;
+}
+.Brief .wrapper .text h1::after {
+  content: "";
+  background: white !important;
+}
+.Brief .wrapper .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+  gap: 30px;
+}
+.Brief .wrapper .cards .card {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #00c4b4;
+  padding: 2rem 1.5rem;
+  border-radius: 0.5rem;
+}
+.Brief .wrapper .cards .card .logo {
+  max-width: 60px;
+  margin-bottom: 0.8rem;
+}
+.Brief .wrapper .cards .card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+.Brief .wrapper .cards .card p {
+  min-width: 200px;
+  line-height: 1.5rem;
+}
+
+.Contact {
+  padding: 4rem 0;
+}
+.Contact .wrapper .text {
+  text-align: center;
+}
+.Contact .wrapper .text h1 {
+  font-weight: normal;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-family: "Fredericka the Great", cursive;
+  line-height: 1;
+}
+.Contact .wrapper .text h1::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 80px;
+  background: #00c4b4;
+  margin-top: 0.7rem;
+}
+@media (max-width: 650px) {
+  .Contact .wrapper .text h1 {
+    font-size: 2.5rem;
+  }
+  .Contact .wrapper .text h1::after {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.Contact .wrapper .text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.Contact .wrapper .form {
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
+  max-width: 700px;
+  margin: 0 auto;
+  border: none;
+}
+.Contact .wrapper .form input {
+  padding: 0.7rem 1rem;
+  border: none;
+  border: 4px solid #0aaa90;
+  border-right: 0;
+}
+@media (max-width: 650px) {
+  .Contact .wrapper .form input {
+    border-right: 4px solid #0aaa90;
+  }
+}
+.Contact .wrapper .form button {
+  cursor: pointer;
+  color: white;
+  border: none;
+  background-color: #0aaa90;
+  transition: 0.3s;
+  padding: 0.8rem;
+}
+.Contact .wrapper .form button:hover {
+  filter: brightness(110%);
+}
+@media (max-width: 650px) {
+  .Contact .wrapper .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Footer {
+  padding: 4rem 0;
+  background: #0aaa90;
+  padding-bottom: 0;
+}
+.Footer .wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  gap: 30px;
+}
+.Footer .wrapper .logo {
+  grid-column: 1/-1;
+  max-width: 80px;
+  filter: invert(1);
+}
+.Footer .wrapper .item h3 {
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+.Footer .wrapper .item h3::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 20px;
+  background: white;
+  margin-top: 0.3rem;
+}
+.Footer .wrapper .item ul {
+  list-style: none;
+  padding: 0;
+}
+.Footer .wrapper .item ul a {
+  color: white;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  padding: 3px 10px;
+  padding-left: 0;
+}
+.Footer .wrapper .item ul a:hover {
+  filter: brightness(90%);
+}
+.Footer .wrapper .item span {
+  color: white;
+  max-width: 350px;
+  display: block;
+  line-height: 1.5rem;
+}
+.Footer .copy {
+  margin-top: 2rem;
+  border-top: 1px dotted white;
+  padding: 1rem 0;
+  text-align: center;
+  color: white;
 }/*# sourceMappingURL=style.css.map */

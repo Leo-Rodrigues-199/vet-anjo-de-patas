@@ -1,4 +1,18 @@
-$colorPrimary: rgba(10, 170, 144, 1);
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3 {
+  padding: 0;
+  margin: 0;
+}
+$colorPrimary: rgb(10, 170, 144);
+$colorPrimaryTrasp: rgba(10, 170, 144, 0.1);
 $colorSecondary: #00c4b4;
 $fontPrimary: "Montserrat", sans-serif;
 $fontSecondary: "Fredericka the Great", cursive;
@@ -7,7 +21,7 @@ $fontSecondary: "Fredericka the Great", cursive;
   padding: 4rem 0;
 }
 @mixin mobile {
-  @media (max-width: 550px) {
+  @media (max-width: 650px) {
     @content;
   }
 }
@@ -19,12 +33,22 @@ $fontSecondary: "Fredericka the Great", cursive;
     font-size: 3rem;
     margin-bottom: 1rem;
     display: inline-block;
+    font-family: $fontSecondary;
+    line-height: 1;
     &::after {
       content: "";
       display: block;
-      height: 5px;
+      height: 3px;
       width: 80px;
       background: #00c4b4;
+      margin-top: 0.7rem;
+    }
+    @include mobile {
+      font-size: 2.5rem;
+      &::after {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
   p {
@@ -52,30 +76,18 @@ $fontSecondary: "Fredericka the Great", cursive;
     }
     h2 {
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
       font-weight: 500;
     }
     p {
       min-width: 200px;
+      line-height: 1.5rem;
     }
   }
 }
-html {
-  font-family: "Montserrat", sans-serif;
-}
-body,
-ul,
-li,
-p,
-h1,
-h2,
-h3 {
-  padding: 0;
-  margin: 0;
-}
 
 .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -146,25 +158,33 @@ h3 {
 .Intro {
   background-size: cover;
   background-image: url("imgs/dog_1.jpg");
-  height: 750px;
+  background-position: center center;
+  height: 850px;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-shadow: inset 0 0 0 2000px $colorPrimaryTrasp;
+
   @include mobile {
-    background-image: url("imgs/amizade_mob.jpg");
-    background-size: cover;
+    background-position: -600px center;
   }
 
   .wrapper {
     .text {
       @include textSection();
       color: white;
-      font-family: $fontPrimary !important;
       h1 {
         font-weight: 500;
-        font-size: 4rem;
+        font-size: 5rem;
+        @include mobile {
+          font-size: 3rem;
+          &::after {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
       }
     }
   }
@@ -175,12 +195,130 @@ h3 {
   .wrapper {
     .text {
       @include textSection();
+    }
+    .cards {
+      @include cards();
+    }
+  }
+}
+.Brief {
+  @include section;
+  background: $colorPrimary;
+
+  .wrapper {
+    .text {
+      @include textSection();
+      color: white;
       h1 {
         font-family: $fontSecondary;
+        &::after {
+          content: "";
+          background: white !important;
+        }
       }
     }
     .cards {
       @include cards();
     }
+  }
+}
+
+.Contact {
+  @include section;
+  .wrapper {
+    .text {
+      @include textSection();
+    }
+    .form {
+      display: grid;
+      grid-template-columns: 3fr 2fr 1fr;
+      max-width: 700px;
+      margin: 0 auto;
+      border: none;
+      input {
+        padding: 0.7rem 1rem;
+        border: none;
+        border: 4px solid $colorPrimary;
+        border-right: 0;
+        @include mobile() {
+          border-right: 4px solid $colorPrimary;
+        }
+      }
+      button {
+        cursor: pointer;
+        color: white;
+        border: none;
+        background-color: $colorPrimary;
+        transition: 0.3s;
+        padding: 0.8rem;
+        &:hover {
+          filter: brightness(110%);
+        }
+      }
+      @include mobile() {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+.Footer {
+  @include section();
+  background: $colorPrimary;
+  padding-bottom: 0;
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    gap: 30px;
+    .logo {
+      grid-column: 1 / -1;
+      max-width: 80px;
+      filter: invert(1);
+    }
+    .item {
+      h3 {
+        text-transform: uppercase;
+        color: white;
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        &::after {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 20px;
+          background: white;
+          margin-top: 0.3rem;
+        }
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        a {
+          color: white;
+          display: inline-block;
+          margin-bottom: 0.5rem;
+          text-decoration: none;
+          padding: 3px 10px;
+          padding-left: 0;
+          &:hover {
+            filter: brightness(90%);
+          }
+        }
+      }
+      span {
+        color: white;
+        max-width: 350px;
+        display: block;
+        line-height: 1.5rem;
+      }
+    }
+  }
+  .copy {
+    margin-top: 2rem;
+    border-top: 1px dotted white;
+    padding: 1rem 0;
+    text-align: center;
+    color: white;
   }
 }
