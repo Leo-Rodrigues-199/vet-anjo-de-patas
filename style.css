@@ -1,7 +1,16 @@
-body {
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3 {
   padding: 0;
   margin: 0;
-  font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -14,23 +23,45 @@ body {
   padding: 1rem 0;
   background: #0aaa90;
 }
+@media (max-width: 550px) {
+  .Header {
+    padding-bottom: 0;
+  }
+}
 .Header .wrapper {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: minmax(100px, auto) auto;
   align-items: center;
   justify-content: space-between;
+}
+@media (max-width: 550px) {
+  .Header .wrapper {
+    grid-template-columns: auto;
+    justify-content: center;
+    justify-items: center;
+  }
 }
 .Header .wrapper .logo {
   filter: invert(1);
   max-width: 80px;
 }
+@media (max-width: 550px) {
+  .Header .wrapper .logo {
+    max-width: 60px;
+  }
+}
 .Header .wrapper .nav {
   color: white;
-  justify-self: end;
 }
 .Header .wrapper .nav ul {
   display: flex;
   list-style: none;
+  padding-left: 0;
+}
+@media (max-width: 550px) {
+  .Header .wrapper .nav ul {
+    padding: 0.6rem 0;
+  }
 }
 .Header .wrapper .nav ul li {
   display: flex;
@@ -54,4 +85,102 @@ body {
 }
 .Header .wrapper .nav ul li + li {
   margin-left: 15px;
+}
+
+.Intro {
+  background-size: cover;
+  background-image: url("imgs/dog_1.jpg");
+  height: 750px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+@media (max-width: 550px) {
+  .Intro {
+    background-image: url("imgs/amizade_mob.jpg");
+    background-size: cover;
+  }
+}
+.Intro .wrapper .text {
+  text-align: center;
+  color: white;
+  font-family: "Montserrat", sans-serif !important;
+}
+.Intro .wrapper .text h1 {
+  font-weight: normal;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.Intro .wrapper .text h1::after {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 80px;
+  background: #00c4b4;
+}
+.Intro .wrapper .text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.Intro .wrapper .text h1 {
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+.About {
+  padding: 4rem 0;
+}
+.About .wrapper .text {
+  text-align: center;
+}
+.About .wrapper .text h1 {
+  font-weight: normal;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.About .wrapper .text h1::after {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 80px;
+  background: #00c4b4;
+}
+.About .wrapper .text p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.About .wrapper .text h1 {
+  font-family: "Fredericka the Great", cursive;
+}
+.About .wrapper .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+  gap: 30px;
+}
+.About .wrapper .cards .card {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #00c4b4;
+  padding: 2rem 1.5rem;
+  border-radius: 0.5rem;
+}
+.About .wrapper .cards .card .logo {
+  max-width: 60px;
+  margin-bottom: 0.8rem;
+}
+.About .wrapper .cards .card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.About .wrapper .cards .card p {
+  min-width: 200px;
 }/*# sourceMappingURL=style.css.map */

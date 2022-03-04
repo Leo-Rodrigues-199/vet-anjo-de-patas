@@ -1,18 +1,77 @@
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-}
-
 $colorPrimary: rgba(10, 170, 144, 1);
 $colorSecondary: #00c4b4;
+$fontPrimary: "Montserrat", sans-serif;
+$fontSecondary: "Fredericka the Great", cursive;
 
 @mixin section {
   padding: 4rem 0;
 }
+@mixin mobile {
+  @media (max-width: 550px) {
+    @content;
+  }
+}
 
-@mixin titleSection {
-  font-family: "Fredericka the Great", cursive;
+@mixin textSection {
+  text-align: center;
+  h1 {
+    font-weight: normal;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    &::after {
+      content: "";
+      display: block;
+      height: 5px;
+      width: 80px;
+      background: #00c4b4;
+    }
+  }
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+}
+
+@mixin cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+  gap: 30px;
+  .card {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #00c4b4;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    .logo {
+      max-width: 60px;
+      margin-bottom: 0.8rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    p {
+      min-width: 200px;
+    }
+  }
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+body,
+ul,
+li,
+p,
+h1,
+h2,
+h3 {
+  padding: 0;
+  margin: 0;
 }
 
 .container {
@@ -24,21 +83,35 @@ $colorSecondary: #00c4b4;
 .Header {
   padding: 1rem 0;
   background: $colorPrimary;
+  @include mobile {
+    padding-bottom: 0;
+  }
   .wrapper {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: minmax(100px, auto) auto;
     align-items: center;
     justify-content: space-between;
+    @include mobile {
+      grid-template-columns: auto;
+      justify-content: center;
+      justify-items: center;
+    }
     .logo {
       filter: invert(1);
       max-width: 80px;
+      @include mobile {
+        max-width: 60px;
+      }
     }
     .nav {
       color: white;
-      justify-self: end;
       ul {
         display: flex;
         list-style: none;
+        padding-left: 0;
+        @include mobile() {
+          padding: 0.6rem 0;
+        }
         li {
           display: flex;
           a {
@@ -66,6 +139,48 @@ $colorSecondary: #00c4b4;
           }
         }
       }
+    }
+  }
+}
+
+.Intro {
+  background-size: cover;
+  background-image: url("imgs/dog_1.jpg");
+  height: 750px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  @include mobile {
+    background-image: url("imgs/amizade_mob.jpg");
+    background-size: cover;
+  }
+
+  .wrapper {
+    .text {
+      @include textSection();
+      color: white;
+      font-family: $fontPrimary !important;
+      h1 {
+        font-weight: 500;
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+.About {
+  @include section;
+  .wrapper {
+    .text {
+      @include textSection();
+      h1 {
+        font-family: $fontSecondary;
+      }
+    }
+    .cards {
+      @include cards();
     }
   }
 }
