@@ -90,7 +90,7 @@ h3 {
 
 .Intro {
   background-size: cover;
-  background-image: url("imgs/dog_1.jpg");
+  background-image: url("../imgs/dog_1.jpg");
   background-position: center 60%;
   height: 850px;
   background-repeat: no-repeat;
